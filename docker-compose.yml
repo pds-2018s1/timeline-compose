@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  proxy:
+    image: traefik:1.3.6-alpine
+    volumes:
+      - ./traefik/traefik.toml:/traefik.toml
+    command: "--file"
+    ports:
+      - 3000:3000
+      
+  front:
+    image: g2pdes/timeline-frontend
+
+  back:
+    image: g2pdes/timeline-backend
+    # image: todo-list-backend
+    # mongodb://timeline_user:pdsUser@ds125680.mlab.com:25680/timeline
+    environment: 
+      - MONGO_URL=mongodb://mongodb/timeline
+
+  mongodb:
+    image: mongo

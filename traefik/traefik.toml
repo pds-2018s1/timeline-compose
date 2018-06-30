@@ -1,0 +1,15 @@
+defaultEntryPoints = ["http"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":3000"
+
+[frontends]
+  [frontends.frontend1]
+  backend = "backend1"
+
+  
+[backends]
+  [backends.backend1]
+    [backends.backend1.servers.server1]
+    url = "http://front:3000"
