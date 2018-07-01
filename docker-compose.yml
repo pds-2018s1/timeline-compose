@@ -10,7 +10,7 @@ services:
       - 8080:8080
       
   front:
-    image: timeline
+    image: g2pdes/timeline-frontend
 
   back:
     image: g2pdes/timeline-backend
